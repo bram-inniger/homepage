@@ -1,5 +1,6 @@
 package be.inniger.homepage.web;
 
+import be.inniger.homepage.dao.TmpDao;
 import be.inniger.homepage.service.TmpService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,8 +26,21 @@ public class TmpControllerTest {
 	@MockBean
 	private TmpService tmpService;
 
+	@Autowired
+	private TmpDao tmpDao;
+
 	@Test
-	public void tmpTest() {
+	public void tmpRealTest() {
+		when(tmpService.tmpList()).thenReturn(tmpDao.list());
+
+		String response = restTemplate.getForObject("/tmp-rest", String.class);
+
+		assertThat(response)
+				.isEqualTo("{\"key\":\"Hello\",\"value\":[42,-9223372036854775808,9223372036854775807]}");
+	}
+
+	@Test
+	public void tmpMockedTest() {
 		when(tmpService.tmpList()).thenReturn(List.of(-1L));
 
 		String response = restTemplate.getForObject("/tmp-rest", String.class);

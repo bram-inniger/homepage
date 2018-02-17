@@ -18,12 +18,20 @@ public class TmpDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	public void deleteAll() {
+		jdbcTemplate.update("DELETE FROM numbers");
+
+		log.info("Deleted all records from DB");
+	}
+
 	public void create(long number) {
 		jdbcTemplate.update("INSERT INTO numbers " +
 						"  (number) " +
 						"  VALUES " +
 						"  (?)",
 				number);
+
+		log.info("Created new record: {}", number);
 	}
 
 	public List<Long> list() {
