@@ -1,6 +1,7 @@
 package be.inniger.homepage;
 
 import be.inniger.homepage.dao.TmpDao;
+import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,10 +13,12 @@ import java.util.stream.Stream;
 public class Application implements CommandLineRunner {
 
 	private final TmpDao tmpDao;
+	private final Flyway flyway;
 
 	@Autowired
-	public Application(TmpDao tmpDao) {
+	public Application(TmpDao tmpDao, Flyway flyway) {
 		this.tmpDao = tmpDao;
+		this.flyway = flyway;
 	}
 
 	public static void main(String... args) {
@@ -25,7 +28,9 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		// Clean up data from previous runs
-		tmpDao.deleteAll();
+		flyway.clean();
+		flyway.migrate();
+
 		Stream.of(42L, Long.MIN_VALUE, Long.MAX_VALUE)
 				.forEach(tmpDao::create);
 	}
