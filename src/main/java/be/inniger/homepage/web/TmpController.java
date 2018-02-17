@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Set;
+import java.util.List;
 
 @RequestMapping("/tmp-rest")
 @RestController
@@ -21,7 +21,7 @@ public class TmpController {
 	}
 
 	@GetMapping
-	public TmpResponse<String, Set<Long>> tmp() {
-		return TmpResponse.of("Hello", tmpService.tmpSet());
+	public TmpResponse<String, List<Long>> tmp() {
+		return TmpResponse.of("Hello", tmpService.tmpList());
 	}
 }

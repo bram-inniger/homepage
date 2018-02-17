@@ -10,7 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Set;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -27,7 +27,7 @@ public class TmpControllerTest {
 
 	@Test
 	public void tmpTest() {
-		when(tmpService.tmpSet()).thenReturn(Set.of(-1L));
+		when(tmpService.tmpList()).thenReturn(List.of(-1L));
 
 		String response = restTemplate.getForObject("/tmp-rest", String.class);
 

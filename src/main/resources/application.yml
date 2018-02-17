@@ -1,0 +1,6 @@
+# DB configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/homepage
+    username: bram
+    password:

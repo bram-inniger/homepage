@@ -1,13 +1,22 @@
 package be.inniger.homepage.service;
 
+import be.inniger.homepage.dao.TmpDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class TmpService {
 
-	public Set<Long> tmpSet() {
-		return Set.of(42L, 0L, Long.MAX_VALUE, Long.MIN_VALUE);
+	private final TmpDao tmpDao;
+
+	@Autowired
+	public TmpService(TmpDao tmpDao) {
+		this.tmpDao = tmpDao;
+	}
+
+	public List<Long> tmpList() {
+		return tmpDao.list();
 	}
 }
