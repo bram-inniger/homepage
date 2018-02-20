@@ -6,3 +6,6 @@
 .idea
 *.iml
 /out
+
+# jOOQ
+/src/main/java/generated
