@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static generated.tables.Numbers.NUMBERS;
+import static generated.Tables.NUMBERS;
 
 @Slf4j
 @Repository

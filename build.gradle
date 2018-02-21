@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RC1'
+		springBootVersion = '2.0.0.RC2'
 		postgresVersion = '42.2.1'
 		jooqVersion = '2.0.11'
 		flywayVersion = '5.0.7'
@@ -53,10 +53,12 @@ jooq {
 			url = 'jdbc:postgresql://localhost:5432/homepage'
 			user = 'bram'
 			password = ''
-			schema = 'public'
 		}
 		generator {
 			name = 'org.jooq.util.DefaultGenerator'
+			database {
+				inputSchema = 'public'
+			}
 			strategy {
 				name = 'org.jooq.util.DefaultGeneratorStrategy'
 			}
