@@ -30,7 +30,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'be.inniger'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 9
+sourceCompatibility = 10
 
 repositories {
 	mavenCentral()

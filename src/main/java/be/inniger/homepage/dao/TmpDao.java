@@ -30,7 +30,7 @@ public class TmpDao {
 	}
 
 	public List<Long> list() {
-		List<Long> numbers = dsl.selectFrom(NUMBERS)
+		var numbers = dsl.selectFrom(NUMBERS)
 				.fetch(NUMBERS.NUMBER);
 
 		log.info("Read from DB: {}", numbers);

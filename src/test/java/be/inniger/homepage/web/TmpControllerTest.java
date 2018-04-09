@@ -33,7 +33,7 @@ public class TmpControllerTest {
 	public void tmpRealTest() {
 		when(tmpService.tmpList()).thenReturn(tmpDao.list());
 
-		String response = restTemplate.getForObject("/tmp-rest", String.class);
+		var response = restTemplate.getForObject("/tmp-rest", String.class);
 
 		assertThat(response)
 				.isEqualTo("{\"key\":\"Hello\",\"value\":[42,-9223372036854775808,9223372036854775807]}");
@@ -43,7 +43,7 @@ public class TmpControllerTest {
 	public void tmpMockedTest() {
 		when(tmpService.tmpList()).thenReturn(List.of(-1L));
 
-		String response = restTemplate.getForObject("/tmp-rest", String.class);
+		var response = restTemplate.getForObject("/tmp-rest", String.class);
 
 		assertThat(response)
 				.isEqualTo("{\"key\":\"Hello\",\"value\":[-1]}");
