@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RC2'
-		postgresVersion = '42.2.1'
+		springBootVersion = '2.0.1.RELEASE'
+		postgresVersion = '42.2.2'
 		jooqVersion = '2.0.11'
 		flywayVersion = '5.0.7'
 	}
@@ -22,9 +22,11 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 apply plugin: 'nu.studer.jooq'
 apply plugin: 'org.flywaydb.flyway'
+// Manages the following dependencies: 
+// https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-dependencies/pom.xml
+apply plugin: 'io.spring.dependency-management'
 
 group = 'be.inniger'
 version = '0.0.1-SNAPSHOT'
