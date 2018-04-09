@@ -2,6 +2,7 @@ package be.inniger.homepage.web;
 
 import be.inniger.homepage.dao.TmpDao;
 import be.inniger.homepage.service.TmpService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -29,6 +31,12 @@ public class TmpControllerTest {
 	@Autowired
 	private TmpDao tmpDao;
 
+	@Before
+	public void setup() {
+		Stream.of(42L, Long.MIN_VALUE, Long.MAX_VALUE)
+				.forEach(tmpDao::create);
+	}
+	
 	@Test
 	public void tmpRealTest() {
 		when(tmpService.tmpList()).thenReturn(tmpDao.list());

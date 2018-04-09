@@ -5,12 +5,14 @@ buildscript {
 		jooqVersion = '2.0.11'
 		flywayVersion = '5.0.7'
 	}
+
 	repositories {
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
 		maven { url "https://plugins.gradle.org/m2/" }
 	}
+
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
 		classpath "org.postgresql:postgresql:${postgresVersion}"
@@ -32,6 +34,10 @@ group = 'be.inniger'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 10
 
+ext {
+	testContainersVersion = '1.7.0'
+}
+
 repositories {
 	mavenCentral()
 	maven { url "https://repo.spring.io/milestone" }
@@ -46,6 +52,7 @@ dependencies {
 	jooqRuntime 'org.postgresql:postgresql'
 //	compileOnly 'org.projectlombok:lombok'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile "org.testcontainers:postgresql:${testContainersVersion}"
 }
 
 jooq {
