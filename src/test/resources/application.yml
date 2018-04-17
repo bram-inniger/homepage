@@ -1,7 +1,0 @@
-spring:
-  # DB configuration
-  datasource:
-    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-    url: jdbc:tc:postgresql:10.3-alpine://localhost:5432/homepage
-    username: test
-    password: test
