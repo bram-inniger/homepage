@@ -1,7 +1,8 @@
 # Homepage
-[![CircleCI](https://img.shields.io/circleci/project/github/bram-inniger/homepage.svg?style=flat-square)](https://circleci.com/gh/bram-inniger/homepage)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Spring Boot](https://img.shields.io/badge/spring--boot-2.0.1.RELEASE-6DB33F.svg?style=flat-square)](https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/)
+[![CircleCI](https://circleci.com/gh/bram-inniger/homepage.svg?style=svg)](https://circleci.com/gh/bram-inniger/homepage)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=be.inniger%3Ahomepage&metric=alert_status)](https://sonarcloud.io/dashboard?id=be.inniger%3Ahomepage)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Spring Boot](https://img.shields.io/badge/spring--boot-2.0.1.RELEASE-6DB33F.svg)](https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/)
 
 Soon to be codebase behind https://inniger.be
 
